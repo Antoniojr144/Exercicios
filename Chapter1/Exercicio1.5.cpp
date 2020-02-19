@@ -1,21 +1,19 @@
 #include<iostream>
-#include<cmath>
+#include<cstring>
 using std::cout;
 using std::cin;
 using std::endl;
-
+using namespace std;
 int main() {
-
-  int A, B, sum;
+  string nome,sobrenome;
   cout << "Digite seu nome:" << endl;
-  cin  >> A;
+  cin  >> nome;
 
   cout << "Digite seu sobrenome:" << endl;
-  cin >> B;
+  cin >> sobrenome;
 
-  sum = A+B;
-
-  cout <<"Seu nome é:"<< sum << endl;
+ 
+  cout <<"Seu nome é:" << nome <<"\t"<< sobrenome << endl;
 
   return 0;
 }
