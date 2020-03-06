@@ -30,62 +30,72 @@ int main ( int argc, char*argv[]){
   double B[3][3] = {{-2.0, 0.0, 1.0},
                    {1.0,  0.0, 0.0},
                    { 4.0, 1.0, 0.0}};
-/*
+
   double w[3];
   for ( int i = 0; i<3; i++)
    {
       w[i] = u[i] - 3*v[i];
    }
-**/
-/*
+
   double x[3];
   for (int i = 0; i<3; i++)
    {
      x[i] = u[i] - v[i];
    }
-  cout << x[0]<< x[1] << x[2] << endl;
-**/
-/* 
+  cout << x[0]<< " " << x[1] << " " << x[2] << endl;
+
+
   double y[3];
   for( int i = 0; i < 3; ++i)
-   for ( int j = 0; j < 3; ++j)
-    for( int k = 0; k < 3; k++)
-   {
-      y[i] = A[i][j]*u[k];
-   }
-  cout << y[0] << y[1] << y[2]<< endl;
-**/
-/*
+  {
+    double soma = 0;
+    for ( int j = 0; j < 3; ++j)
+    {
+      soma += A[i][j]*u[j];
+    }
+    y[i]=soma;
+  }
+  cout << y[0] << " " << y[1] << " " << y[2]<< endl;
+
+
   double z[3];
   for(int i = 0; i < 3; ++i)
-   for(int j = 0; i< 3; ++j)
-    for ( int k = 0; k < 3; k++)
+  {
+   double soma = 0;  
+   for(int j = 0; j< 3; ++j)
     {
-       z[i] = A[i][j]*u[k] - v[k];
+       soma += A[i][j]*u[j];
     }
-  cout << z[0] << z[1] << z[2] << endl;
-**/
-/**
+    z[i] = soma - v[i];
+  }
+  cout << z[0] << " " << z[1] << " " << z[2] << endl;
+
   double c[3][3];
   for(int i = 0; i < 3; ++i)
-   for(int j = 0; i< 3; ++j)
-   {
-     c[i][j] = 4*A[i][j] - 3*B[i][j];
- 
-   }
-
-  cout << c[0][0][0] <<"\n" 
-       << c[1][1][1]<<"\n"
-       << c[2][2][2]<< endl;
-**/
-  double D[3][3];
-  for(int i = 0; i < 3; ++i)
-   for(int j = 0; i< 3; ++j)
   {
-     D[i][j] = A[i][j]*B[i][j];
+    for(int j = 0; j < 3; ++j)
+    {
+      c[i][j] = 4*A[i][j] - 3*B[i][j];
+      cout << c[i][j] << " ";
+    }
+    cout << endl;
   }
 
- cout << D[0][0][0] << D[1][1][1]<< D[2][2][2]<< endl;
+  double D[3][3];
+  for(int i = 0; i < 3; ++i)
+  {
+    for(int j = 0; j < 3; ++j)
+    {
+      double soma = 0;
+      for(int k = 0; k < 3 ; ++k)
+      {
+        soma += A[i][k]*B[k][j];
+      }
+      D[i][j] = soma;
+      cout << D[i][j] << " ";
+    }
+    cout << endl;
+  }
 
 
   return 0;
